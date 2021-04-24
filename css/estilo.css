@@ -1,6 +1,9 @@
-.prendido{
-    background-color: lightyellow;
+#btn-rojo{
+    background-color: red;
 }
-.apagado{
-    background-color: black;
+#btn-verde{
+    background-color: green;
+}
+#btn-azul{
+    background-color: blue;
 }
