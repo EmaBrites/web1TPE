@@ -5,6 +5,7 @@ a{
 header{
     background-color: red;
     display: flex;
+    justify-content: space-around;
 }
 header ul{
     background-color: gray;
@@ -17,6 +18,7 @@ main{
 .galeria{
     background-color: gray;
     display: flex;
+    align-items: center;
     justify-content: space-around;
 }
 .galeria img{
@@ -31,16 +33,24 @@ main{
     background-color: lightgray;
     width: 33%;
 }
+table,tr,td,th{
+    border: 1px solid;
+}
 footer{
     background-color: blue;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 .redes{
     background-color: gray;
     display: flex;
+    align-items: center;
 }
 .redes img{
     width: 50px;
     height: 50px;
+}
+.contacto-footer{
+    background-color: red;
+    justify-content: flex-start;
 }
