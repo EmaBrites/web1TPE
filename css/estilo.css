@@ -1,207 +1,169 @@
-*{margin:0; /* por que?*/
-  box-sizing: border-box;
- }
+/*estilos globales*/
+h1{
+    text-transform: uppercase;
+    color: rgb(14,83,41);
+    font-size: 1.9em;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+h2,h3{
+    font-weight:bolder;
+    text-align:center;
+}
 
 body{
-    background-image: url(../images/fondoverdeoscuro.jpg);
-    background-size: cover;
+    background-color:rgb(253, 243, 243);
 }
-
-.containerhome{/*no es necesario, igual que body*/
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-
-h1{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    text-transform: uppercase;
-    font-style:unset;
-    text-shadow: 1px 1px 2px black, 0 0 1em rgb(61, 148, 100), 0 0 0.2em rgb(61, 61, 97);
-    color: rgb(14, 83, 41);
-    font: 1.8em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
-    
-}
-
 header{
-    display: flex;
-    width: 100%;/*no es necesario*/
-    height: 70px; /*muy chico, es necesario fijarlo?*/
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style: Cambria;  /*estilo, no fuente*/
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: rgb(85, 207, 126);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
-
 header ul{
     display: flex;
-    list-style: none;
+    list-style:none;
+    font-weight:bold;
+    font-size: 1.1em;
+    text-shadow:1px 1px 2px rgb(246, 250, 245); 
 }
-
-.navegacion{/*solapado con header ul*/
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.botonera{
-    display: flex;
-    padding: 0px;
-    justify-content: flex-end;    
-}
-
-.item, .itembotonera{
-    background-color:rgb(13, 133, 59);
-    border-top: 1px solid black;
-    border-bottom: 2px groove black;
-    border-left: 1px groove black;
-    border-right: 1px groove black;
-    list-style: none;
-    margin: 0px 10px;
-    text-transform: uppercase;
-    padding: 15px;
-}
-main{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.2em;
-}
-.galeria{ /*ya existe galeria*/
-    margin: 10px;
-}
-
-.nosotros{
-    display: flex;/*no se usa*/
-    padding: 30px;
-    float: left;
-    margin: 10px;
-}
-
-.tabla{
-    display: flex;
-    justify-content: center;
-    font-style:oblique;
-    background: transparent;
-}
-thead{
-    background-color:rgb(194, 226, 123);
-}
-table, td, tr{
-    border: 1px solid black;
-}
-.itemtabla:hover{/*por que*/
-    background: none;
-}
-.itemtabla{
-    list-style: none;
-}
-a{
-    color: black;
-    text-decoration: none;
-}
-
 li{
     margin:0 10px;
     padding:5px;  
 }
 li:hover{
-    background:#e7f185; 
-    opacity:0.9; 
+    background:#edf3ee;  
 }
-
-.galeria{
-    display: flex;
-    justify-content: space-around;
+a{
+    color: rgb(3, 43, 13);
+    font-weight: bolder;
+    text-decoration: none;
 }
-.galeria img{
-    width: 30%;
+main{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
 }
-
-.noticias{
-    background-image: url(../images/fondonoticias.jpg);
-    background-size: cover;
-    display: flex;
-    justify-content: space-between;
-    font-family:monospace;
-    padding: 25px;
-}
-
-
-.articulo{
-    width: 33%;
-    opacity: 1;
-    color: black;
-}
-.titulopreguntas, .tituloconsultas{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.3em;
-    color:darkgreen;
-    padding: 20px;
-}
-.listapreguntas{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;/*ya esta en main*/
-    font-size: 1.3em;
-    color:darkgreen;
-    padding: 20px;
-}
-.respuestas:hover{
-    background: none;
-}
-.respuestas{
-    list-style: none;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-
-
-.contacto{
-    justify-content: left;
-   
-}
-.formulario{
-    display: flex;
-    justify-content: space-around;
-}
-
-.email{
-    margin-right: 19px;
-}
-.celdasform{
-    display: flex;
-    justify-content:flex-end;
-
-}
-
-
 footer{
-    width: 100%;
-    background-color:#D0F656;
+    background-color:#6eb36c;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
+    padding: 2px;
+    font-size: 1.1em;
     font-style: italic;
 }
 .iniciofooter{
     text-decoration:underline;
 }
-
 .contacto-footer{
      display: flex;
      justify-content: space-around;
      align-items: center;
-     margin-right: 60px;
+     margin-left:30px;
 }
 .redes{
     display: flex;
-    background-color: gray;
-      
+    justify-content: space-between;
 }
-.redes-images{
-    display: flex;
-    width: 50px;
+.redes a img{
+    margin: 5px;
     height: 50px;
-    justify-content: space-around;
-    margin-left: 400px;
 }
+/*inicio*/
+.galeria{
+    display: flex;
+    justify-content:space-between; 
+}
+.galeria img{
+    height: 200px;
+}
+.presentacion{
+    width: 95%;
+    max-width: 3000px;
+    margin:auto;
+    justify-content: center;
+    text-align: justify;   
+}
+.pasos{
+    display: flex;
+    justify-content: space-around;
+    flex-flow:row wrap;
+    padding: 30px;
+    margin-top: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+.cajaflex{
+    display: flex;  
+}
+table{
+    display: flex;
+    justify-content: center;
+    font-style:oblique;
+}
+th{
+    border: 2.5px solid black;
+}
+td, tr{
+    border: 2px solid black;
+    background-color:rgb(220, 236, 174)
+}
+.datosanuales{
+    display: flex;
+    justify-content:center;
+    padding-left: 16px;
+    width: 1250px; 
+    height:250px;
+}
+.noticias{
+    display: flex; 
+    justify-content: space-between;
+    margin-bottom:10px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}   
+.articulo{
+    max-width: 30%;
+    background-color:rgb(210, 240, 229);
+    font-size: 0.8em;
+    font-style: oblique;
+    padding: 15px;
+}
+/**A partir de aquí se encuentra el CSS del html 2:Preguntas Frecuentes**/
+.listapreguntas{
+    font-size: 1.3em;
+    color:darkgreen;
+    margin: 0 30px;
+}
+dd{
+    display: none;
+}
+dd:target{
+    display: initial;
+}
+/**A partir de acá se encuentra el CSS del html 3: Contacto**/
+ .tituloconsultas{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    color:darkgreen;
+    padding: 5px;
+}
+.contacto{
+    margin-left: 35px;  
+}
+form{
+    display: flex;
+    flex-direction: column;    
+}
+.columnas{
+    width: 50%;
+}
+.datosform{
+    display: flex;
+}
+/**Captcha**/
+.ingresocaptcha{
+    display: flexbox
+}
+
+
 
 
 

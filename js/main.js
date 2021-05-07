@@ -1,21 +1,28 @@
-let captcha ="agb269";
+let captcha ="ApE241";
 
 let captchaInDom= document.querySelector("#captcha");
-captchaInDom.value=captcha;
+captchaInDom.innerHTML=captcha;
 
-let respuesta = document.querySelector("#respuesta");
 
-let submit = document.querySelector("#submit");
+let submit = document.querySelector("#btn-enviar");
 
 
 submit.addEventListener("click",function (e){
+
+    let respuesta = document.querySelector("#input-respuesta");
     if (respuesta.value == captcha){
-        alert("el captcha es valido");
+        
+        prompt("el captcha es valido");
     }else
     {
-        alert("el captcha es invalido");
+        prompt("el captcha es invalido");
     }
 })
 
 
-    
+
+
+
+ 
+
+
