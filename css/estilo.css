@@ -69,11 +69,11 @@ footer{
     height: 50px;
 }
 /*inicio*/
-.galeria{
+.multimedia{
     display: flex;
     justify-content:space-between; 
 }
-.galeria img{
+.multimedia img{
     height: 200px;
 }
 .presentacion{
