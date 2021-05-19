@@ -78,9 +78,7 @@ footer{
 }
 .presentacion{
     width: 95%;
-    max-width: 3000px;
     margin:auto;
-    justify-content: center;
     text-align: justify;   
 }
 .pasos{
@@ -109,9 +107,6 @@ td, tr{
 .datosanuales{
     display: flex;
     justify-content:center;
-    padding-left: 16px;
-    width: 1250px; 
-    height:250px;
 }
 .noticias{
     display: flex; 
