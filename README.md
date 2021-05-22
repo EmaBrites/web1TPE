@@ -7,7 +7,7 @@ lista de tareas andre:
 	formato formulario
 lista de tareas ema:
 	galeria js
-	video institucional()
+	video institucional(no hay)
 	editar imagen del logo (solo falta integrar)
 	lista de vista movil:
 		menu oculto/colapsado 
@@ -17,5 +17,3 @@ lista de tareas ema:
 		adaptar imagen de datos
 		ultimas noticias con solo titulares
 		adaptar footer
-		
-		
