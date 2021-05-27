@@ -2,7 +2,8 @@ let index=0;
 let imagenes=[];
 imagenes=document.querySelectorAll("img.oculto");
 let boton=document.querySelector("#btn-next");
-setInterval(pasarImagen, 1000);
+pasarImagen();
+setInterval(pasarImagen, 3000);
 function pasarImagen(){
     if(index>=imagenes.length){
         imagenes[index-1].classList.toggle("oculto");
