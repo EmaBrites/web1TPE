@@ -1,14 +1,7 @@
 # web1TPE
 Trabajo practico especial Web 1 TUDAI
 lista de tareas andre:
-	captcha js
-	estilo tabla
-	ordenar pasos
-	formato formulario
-lista de tareas ema:
-	galeria js
-	video institucional(no hay)
-	editar imagen del logo (solo falta integrar)
+	dividir tabla
 	lista de vista movil:
 		menu oculto/colapsado 
 		tamaño relativo de letra
@@ -17,3 +10,12 @@ lista de tareas ema:
 		adaptar imagen de datos
 		ultimas noticias con solo titulares
 		adaptar footer
+lista de tareas ema:
+	galeria js
+	formato formulario
+	hacer tabla json
+	
+
+consultas:
+	varios js?
+	
