@@ -55,10 +55,10 @@ footer{
     text-decoration:underline;
 }
 .contacto-footer{
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     margin-left:30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left:30px;
 }
 .redes{
     display: flex;
@@ -68,13 +68,18 @@ footer{
     margin: 5px;
     height: 50px;
 }
+.oculto{
+    display: none;
+}
 /*inicio*/
 .multimedia{
     display: flex;
-    justify-content:space-between; 
+    justify-content:center; 
 }
 .multimedia img{
-    height: 200px;
+    max-width: 100%;
+    max-height: 400px;/*buscar medida relativa acorde*/
+    animation: fade 1s;
 }
 .presentacion{
     width: 95%;
@@ -219,4 +224,8 @@ button:hover{
 }
 .oculto{
     display: none;
+}
+@keyframes fade{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
