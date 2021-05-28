@@ -30,7 +30,8 @@ TextoCaptcha.addEventListener('keyup', function(e){
 //function Validar(IngresoCaptcha){
 //IngresoCaptcha.preventDefault();//Nose dónde ubicar esto para que haga el stop antes de mostrar los mensajes de captcha correcto o incorrecto
 //} 
-BotonEnviar.addEventListener('click', function(){
+BotonEnviar.addEventListener('click', function(e){
+    e.preventDefault();
     if (IngresoCaptcha.value==TextoCaptcha.innerHTML){
      respuesta.classList.add("Captcha-correcto");
      respuesta.innerHTML="Correcto!";
@@ -40,7 +41,8 @@ BotonEnviar.addEventListener('click', function(){
     }
 });
 
-BotonRefresh.addEventListener('click', function(){
+BotonRefresh.addEventListener('click', function(e){
+    e.preventDefault();
     IngresoCaptcha.value="";
     let refreshArreglo=[];
     for (let j=1; j<=5; j++){
