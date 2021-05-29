@@ -16,6 +16,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="preguntas.html">Preguntas frecuentes</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="voluntarios.html">Se voluntario</a></li>
             </ul>
         </nav>                
     </header>
@@ -32,11 +33,13 @@
                     <div><input placeholder="Escriba su e-mail aquí.."></div>
                     <div><input placeholder="Escriba su teléfono aquí.."></div>
                     <div><input placeholder="Escriba su consulta aquí.."></div>
-                    <div><button>Enviar Consulta</button></div>
-                    <p id="captcha">Texto Captcha</p>
-                    <input id="ingreso-captcha" type="text" name="text" value="">
+                    <div class="cajaflex">
+                        <p id="captcha">Texto Captcha</p>
+                        <input id="ingreso-captcha" type="text" name="text" value="">
+                    </div>
                     <div id="botones-captcha">
-                        <input id="boton-enviar" type="submit">
+                        <button>Enviar Consulta</button>
+                        <button id="boton-enviar" type="submit">Enviar</button>
                         <button id="boton-refrescar" type="submit">Refrescar</button>   
                     </div>
                        <span id="respuesta-captcha">aca</span> <!--Nose si es buena practica poner id y class juntos-->

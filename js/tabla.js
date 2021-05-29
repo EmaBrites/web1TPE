@@ -76,9 +76,10 @@ function agrega1(e){
     mostrarTabla();
 }
 
-function agrega3(){
+function agrega3(e){
+    e.preventDefault();
     for(let i=0; i<3; i++){
-        agrega1();
+        agrega1(e);
     }
     mostrarTabla();
 }
@@ -113,11 +114,10 @@ function mostrarTabla(){
         </tbody>`;
     console.log(tabla.innerHTML);
 }
-
-function borrar(){
+function borrar(e){
+    e.preventDefault();
 console.log(voluntarios);
     voluntarios=[];
 console.log(voluntarios);    
     mostrarTabla();
-
 }
