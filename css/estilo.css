@@ -27,6 +27,9 @@ header ul{
     font-size: 1.1em;
     text-shadow:1px 1px 2px rgb(246, 250, 245); 
 }
+header img{
+    
+}
 li{
     margin:0 10px;
     padding:5px;  
@@ -176,7 +179,7 @@ form{
     padding:20px 30px;
 }
 
-input{
+input,select,textarea{
     width:100%;
     padding:10px;
     margin: 10px 0px;
@@ -185,6 +188,9 @@ input{
     border:0;
     transition:all .3s;
     border-bottom:2px solid #bebed2
+}
+textarea{
+    resize: none;
 }
 input:focus{
     border-bottom:2px solid #78788c
