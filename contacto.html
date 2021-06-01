@@ -9,8 +9,7 @@
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="Logo del banco de alimentos">
-        <h1>Fundación Banco de Alimentos Tandil</h1>
+        <img src="images/logo-bat.png" alt="Logo del banco de alimentos">
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -23,8 +22,8 @@
     <main>
         <div class="cajaflex">
             <div class="columnas">
-                <h2 class="tituloconsultas">Contáctese con nosotros</h2>
-                <p class="contacto">Si usted tiene alguna consulta, duda o sugerencia sobre nuestra organización, complete por favor el formulario presentado a continuación:</p> 
+                <h2>Contáctese con nosotros</h2>
+                <p>Si usted tiene alguna consulta, duda o sugerencia sobre nuestra organización, complete por favor el formulario presentado a continuación:</p> 
             </div>
             <div class="columnas">
                 <form class="form">
@@ -34,16 +33,14 @@
                     <div><input placeholder="Escriba su teléfono aquí.."></div>
                     <div><input placeholder="Escriba su consulta aquí.."></div>
                     <div><textarea placeholder="Escriba su consulta aquí.."></textarea></div>
-                    <div class="cajaflex">
+                    <div class="cajagrid">
                         <p id="captcha">Texto Captcha</p>
+                        <button id="boton-refrescar" type="submit">Refrescar</button>   
                         <input id="ingreso-captcha" type="text" name="text" value="">
+                        <p id="respuesta-captcha">aca</p> <!--Nose si es buena practica poner id y class juntos-->
                     </div>
                     <div id="botones-captcha">
-                        <button>Enviar Consulta</button>
-                        <button id="boton-enviar" type="submit">Enviar</button>
-                        <button id="boton-refrescar" type="submit">Refrescar</button>   
-                    </div>
-                       <span id="respuesta-captcha">aca</span> <!--Nose si es buena practica poner id y class juntos-->
+                        <button id="boton-enviar" type="submit">Enviar Consulta</button>
                     </div>   
                 </form>
             </div>

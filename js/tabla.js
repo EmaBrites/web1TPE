@@ -2,7 +2,7 @@
 document.querySelector("#btn-agregar").addEventListener("click", agrega1);
 document.querySelector("#btn-agregar3").addEventListener("click", agrega3);
 document.querySelector("#btn-borrar").addEventListener("click", borrar);
-
+document.addEventListener("DOMContentLoaded",mostrarTabla);
 let voluntarios=[
     {
         nombre:"Antonela",
@@ -34,22 +34,6 @@ let voluntarios=[
         telefono:"2494641444",
         email:"fgomez@gmail.com",
         area:"administracion",
-        turno:"tarde",
-    },
-    {
-        nombre:"Gustavo",
-        apellido:"Lopez",
-        telefono:"2494641076",
-        email:"glopez@gmail.com",
-        area:"deposito",
-        turno:"mañana",
-    },
-    {
-        nombre:"Laura",
-        apellido:"Rodriguez",
-        telefono:"249461654",
-        email:"lrodriguez@gmail.com",
-        area:"deposito",
         turno:"tarde",
     }
 ];
