@@ -20,6 +20,8 @@ nav ul{
     font-weight:bold;
     font-size: 1.1em;
     text-shadow:1px 1px 2px rgb(246, 250, 245); 
+    transition: ease 2s;
+    animation: fade 1s;
 }
 nav ul.show{
     display: block;
@@ -227,6 +229,35 @@ button:hover{
     from{opacity: 0;}
     to{opacity: 1;}
 }
+.container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  /* Rotate first bar */
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {
+    opacity: 0;
+  }
+  
+  /* Rotate last bar */
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+  }
 @media screen and (min-width:600px) {
     /* globales */
     header{

@@ -2,9 +2,10 @@
 document.addEventListener("DOMContentLoaded",iniciarMenu);
 function iniciarMenu(){
 
-    document.querySelector(".btn-menu").addEventListener("click", toggleMenu);
-    
+    let boton=document.querySelector(".btn-menu")
+    boton.addEventListener("click", toggleMenu);
     function toggleMenu() {
+        boton.classList.toggle("change");
         document.querySelector("nav ul").classList.toggle("show");
     }
 }
