@@ -1,9 +1,7 @@
 "use strict";
-document.querySelector("#btn-agregar").addEventListener("click", agrega1);
-document.querySelector("#btn-agregar3").addEventListener("click", agrega3);
-document.querySelector("#btn-borrar").addEventListener("click", borrar);
-document.addEventListener("DOMContentLoaded",mostrarTabla);
-let voluntarios=[
+document.addEventListener("DOMContentLoaded",iniciarTabla);
+function iniciarTabla(){
+    let voluntarios=[
     {
         nombre:"Antonela",
         apellido:"Valdez",
@@ -35,8 +33,12 @@ let voluntarios=[
         email:"fgomez@gmail.com",
         area:"administracion",
         turno:"tarde",
-    }
-];
+    }];
+    mostrarTabla();
+    document.querySelector("#btn-agregar").addEventListener("click",agrega1);
+    document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
+    document.querySelector("#btn-borrar").addEventListener("click",borrar);
+
 
 function agrega1(e){
     e.preventDefault();
@@ -58,8 +60,7 @@ function agrega1(e){
     voluntarios.push(voluntarioNuevo);
     mostrarTabla();
 }
-
-function agrega3(e){
+function agrega3(e,){
     e.preventDefault();
     for(let i=0; i<3; i++){
         agrega1(e);
@@ -100,4 +101,5 @@ function borrar(e){
     e.preventDefault();
     voluntarios=[];   
     mostrarTabla();
+}
 }

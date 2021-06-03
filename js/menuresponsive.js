@@ -1,5 +1,10 @@
-document.querySelector(".btn-menu").addEventListener("click", toggleMenu);
+"use strict";
+document.addEventListener("DOMContentLoaded",iniciarMenu);
+function iniciarMenu(){
 
-function toggleMenu() {
-    document.querySelector("nav ul").classList.toggle("show");
+    document.querySelector(".btn-menu").addEventListener("click", toggleMenu);
+    
+    function toggleMenu() {
+        document.querySelector("nav ul").classList.toggle("show");
+    }
 }

@@ -1,4 +1,7 @@
 "use strict";
+document.addEventListener("DOMContentLoaded",iniciarCaptcha);
+function iniciarCaptcha(){
+
 let TextoCaptcha= document.querySelector("#captcha");
 let IngresoCaptcha= document.querySelector("#ingreso-captcha");
 let BotonEnviar= document.querySelector("#boton-enviar");
@@ -52,19 +55,4 @@ BotonRefresh.addEventListener('click', function(e){
     respuesta=="";
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

@@ -1,6 +1,7 @@
 "use strict";
 
-document.addEventListener("DOMContentLoaded",function(e){
+document.addEventListener("DOMContentLoaded",iniciarGaleria);
+function iniciarGaleria(){
     let index=0;
     let imagenes=[];
     imagenes=document.querySelectorAll("img.oculto");
@@ -15,5 +16,5 @@ document.addEventListener("DOMContentLoaded",function(e){
         imagenes[index].classList.toggle("oculto");
         index++;
     }
-});
 
+}
