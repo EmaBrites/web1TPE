@@ -20,7 +20,6 @@ nav ul{
     font-weight:bold;
     font-size: 1.1em;
     text-shadow:1px 1px 2px rgb(246, 250, 245); 
-    transition: ease 2s;
     animation: fade 1s;
 }
 nav ul.show{
@@ -75,6 +74,11 @@ footer{
 .contenedor{
     overflow: auto;
     margin: 10px;
+}
+.flex-arund{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 /*inicio*/
 .multimedia{
@@ -268,7 +272,7 @@ button:hover{
     nav ul{
         display: flex;
     }
-    .btn-menu{
+    #btn-menu{
         display: none;
     }
     /* incio */
