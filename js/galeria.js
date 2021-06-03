@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded",function(e){
             imagenes[index-1].classList.toggle("oculto");
             index=0;
         }
-        console.log(index);
         if(index!=0){imagenes[index-1].classList.toggle("oculto")};
         imagenes[index].classList.toggle("oculto");
         index++;
