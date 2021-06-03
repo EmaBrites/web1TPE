@@ -56,7 +56,6 @@ function agrega1(e){
         turno: turno,
     }
     voluntarios.push(voluntarioNuevo);
-    console.log("Agrega uno:", voluntarioNuevo);
     mostrarTabla();
 }
 
@@ -69,7 +68,6 @@ function agrega3(e){
 }
 
 function mostrarTabla(){
-    console.table(voluntarios);
     let tabla=document.querySelector("#t-voluntarios");
     tabla.innerHTML=`
         <thead>
@@ -100,8 +98,6 @@ function mostrarTabla(){
 }
 function borrar(e){
     e.preventDefault();
-console.log(voluntarios);
-    voluntarios=[];
-console.log(voluntarios);    
+    voluntarios=[];   
     mostrarTabla();
 }
