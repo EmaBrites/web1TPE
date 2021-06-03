@@ -14,8 +14,3 @@ lista de tareas ema:
 	galeria js
 	formato formulario
 	hacer tabla json
-	
-
-consultas:
-	varios js?
-	

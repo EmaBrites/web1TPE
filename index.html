@@ -9,14 +9,16 @@
 </head>
 <body>
     <header>  
-        <img src="images/logo.png" alt="Logo del banco de alimentos">
-        <h1>Fundación Banco de Alimentos Tandil</h1>
+        <div class="cajaflex">
+            <img src="images/logo-bat.png" alt="Logo del banco de alimentos">
+            <p class="btn-menu">Menu</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="preguntas.html">Preguntas frecuentes</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="voluntarios.html">Se voluntario</a></li>
+                <li><a href="voluntarios.html">Sumate</a></li>
             </ul>
         </nav>                
     </header>
@@ -54,50 +56,81 @@
             </section>
             <section>
                 <h3>Nuestro equipo de trabajo</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Consejo de Administración</th>
-                            <th colspan="2">Grupo de Trabajo</th>
-                            <th>Antigüedad</th>
-                        </tr>
-                    </thead>
+                <div class="contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Consejo de Administración</th>
+                                <th>Antigüedad</th>
+                            </tr>
+                        </thead>
                         <tr>
                             <td>Presidente</td>
                             <td>Eduardo Becu</td>
-                            <td>Director Ejecutivo</td>
-                            <td>Mario H. Bañiles</td>
-                            <td>2/17 años</td>
+                            <td>2 años</td>
                         </tr>
                         <tr>
                             <td>VicePresidente</td>
                             <td>Gabriela Llorente</td>
-                            <td>Gerente de Desarrollo de Donantes y Comunicación</td>
-                            <td>Lorena Alvarez</td>
                             <td>17 años</td>
                         </tr>
                         <tr>
                             <td>Secretario</td>
                             <td>Alejandro Arhex</td>
-                            <td>Gerente de Proyectos</td>
-                            <td>Lic. Bárbara Schrott</td>
-                            <td>19/11 años</td>
+                            <td>19 años</td>
                         </tr>
                         <tr>
                             <td>Tesorero</td>
                             <td>Leonardo Duringer</td>
-                            <td>Gerente Entidades Asociadas y Voluntariado</td>
-                            <td>Natalia Bellver</td>
-                            <td>12/15 años</td>
+                            <td>12 años</td>
                         </tr>
                         <tr>
-                            <td>Vocales</td>
-                            <td>Gaston Therisod y Leandro Venacio</td>
+                            <td>Vocal Uno</td>
+                            <td>Gaston Therisod</td>
+                            <td>10 años</td>
+                        </tr>
+                        <tr>
+                            <td>Vocal Dos</td>
+                            <td>Leandro Venacio</td>
+                            <td>10 años</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="contenedor">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Grupo de Trabajo</th>
+                                <th>Antigüedad</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Director Ejecutivo</td>
+                            <td>Mario Bañiles</td>
+                            <td>17 años</td>
+                        </tr>
+                        <tr>
+                            <td>Gerente de Desarrollo de Donantes y Comunicación</td>
+                            <td>Lorena Alvarez</td>
+                            <td>17 años</td>
+                        </tr>
+                        <tr>
+                            <td>Gerente de Proyectos</td>
+                            <td>Lic. Bárbara Schrott</td>
+                            <td>11 años</td>
+                        </tr>
+                        <tr>
+                            <td>Gerente Entidades Asociadas y Voluntariado</td>
+                            <td>Natalia Bellver</td>
+                            <td>15 años</td>
+                        </tr>
+                        <tr>
                             <td>Jefe de Deposito</td>
                             <td>Exequiel Hernando</td>
                             <td>10 años</td>
-                        </tr>     
-                </table>
+                        </tr>
+                    </table>
+                </div>
             </section>
             <section>
                 <h3>Los siguientes datos corresponden a nuestro último año de actividad</h3>
@@ -143,19 +176,15 @@
         </article>
     </main>
     <footer>
-        
-        <section class="contacto-footer">
-            <p><span class="iniciofooter">Contacto:</span> Rosales 383 -Tandil-7000  Tel: (0249) 4449149 Email: info@bat.org.ar</p>
-        
-        
-        </section>
-        <section class="redes">
+        <p><span class="iniciofooter">Contacto:</span> Rosales 383 -Tandil-7000  Tel: (0249) 4449149 Email: info@bat.org.ar</p>
+        <div class="redes">
             <a href="https://www.facebook.com/BancoDeAlimentosTandil/" target="_blank"><img src="images/facebook.jpg" alt="logo de facebook"></a>
             <a href="https://www.instagram.com/bancodealimentostandil" target="_blank"><img src="images/instagram.jpg" alt="logo de instagram"></a>
             <a href="https://twitter.com/bancoalimentos" target="_blank"><img src="images/twitter.png" alt="logo de twitter"></a>
-        
-        </section>
+        </div>
     </footer>
+    <script src="js/menuresponsive.js"></script>
     <script src="js/galeria.js"></script>
+    
 </body> 
 </html>

@@ -9,14 +9,16 @@
 </head>
 <body>
     <header>  
-        <img src="images/logo.png" alt="Logo del banco de alimentos">
-        <h1>Fundación Banco de Alimentos Tandil</h1>
+        <div class="cajaflex">
+            <img src="images/logo-bat.png" alt="Logo del banco de alimentos">
+            <p class="btn-menu">Menu</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="preguntas.html">Preguntas frecuentes</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="voluntarios.html">Se voluntario</a></li>
+                <li><a href="voluntarios.html">Sumate</a></li>
             </ul>
         </nav>                
     </header>
@@ -43,11 +45,17 @@
                 </div>
                 <div>
                     <label for="area">Area</label>
-                    <input type="text" id="area">
+                    <select name="" id="area">
+                        <option value="Administración">Administración</option>
+                        <option value="Depósito">Depósito</option>
+                    </select>
                 </div>
                 <div>
                     <label for="turno">Turno</label>
-                    <input type="text" id="turno">
+                    <select name="" id="turno">
+                        <option value="Mañana">Mañana</option>
+                        <option value="Tarde">Tarde</option>
+                    </select>
                 </div>
                 <button id="btn-agregar">Agregar</button>
                 <button id="btn-agregar3">Agregar 3</button>
@@ -59,19 +67,14 @@
         </div>
     </main>
     <footer>
-        
-        <section class="contacto-footer">
-            <p><span class="iniciofooter">Contacto:</span> Rosales 383 -Tandil-7000  Tel: (0249) 4449149 Email: info@bat.org.ar</p>
-        
-        
-        </section>
-        <section class="redes">
+        <p><span class="iniciofooter">Contacto:</span> Rosales 383 -Tandil-7000  Tel: (0249) 4449149 Email: info@bat.org.ar</p>
+        <div class="redes">
             <a href="https://www.facebook.com/BancoDeAlimentosTandil/" target="_blank"><img src="images/facebook.jpg" alt="logo de facebook"></a>
             <a href="https://www.instagram.com/bancodealimentostandil" target="_blank"><img src="images/instagram.jpg" alt="logo de instagram"></a>
             <a href="https://twitter.com/bancoalimentos" target="_blank"><img src="images/twitter.png" alt="logo de twitter"></a>
-        
-        </section>
+        </div>
     </footer>
+    <script src="js/menuresponsive.js"></script>
     <script src="js/tabla.js"></script>
 </body>
 </html>

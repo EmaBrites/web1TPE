@@ -1,31 +1,34 @@
 /*estilos globales*/
-h1{
-    text-transform: uppercase;
-    color: rgb(14,83,41);
-    font-size: 1.9em;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-}
-h2,h3{
+h1,h2,h3{
     font-weight:bolder;
     text-align:center;
+    color: darkgreen;
+    padding: 10px;
 }
-
 body{
     margin: 0px;
+    text-align: justify;
 }
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
+    width: 100%;
     background-color: rgb(85, 207, 126);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
-header ul{
-    display: flex;
+nav ul{
+    display: none;
     list-style:none;
     font-weight:bold;
     font-size: 1.1em;
     text-shadow:1px 1px 2px rgb(246, 250, 245); 
+}
+nav ul.show{
+    display: block;
+}
+header img{
+    padding: 10px;
+    max-height: 100px;
+    width: 70%;
+    max-width: 400px;
 }
 li{
     margin:0 10px;
@@ -46,19 +49,15 @@ main{
 footer{
     background-color:#6eb36c;
     display: flex;
+    flex-direction: column;
     justify-content:space-between;
-    padding: 2px;
+    align-items: center;
+    padding: 10px;
     font-size: 1.1em;
     font-style: italic;
 }
 .iniciofooter{
     text-decoration:underline;
-}
-.contacto-footer{
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     margin-left:30px;
 }
 .redes{
     display: flex;
@@ -70,6 +69,10 @@ footer{
 }
 .oculto{
     display: none;
+}
+.contenedor{
+    overflow: auto;
+    margin: 10px;
 }
 /*inicio*/
 .multimedia{
@@ -89,13 +92,14 @@ footer{
 .pasos{
     display: flex;
     justify-content: center;
-    flex-flow:row wrap;
+    flex-flow:column wrap;
     padding: 30px;
     margin-top: 10px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 .cajaflex{/*buscar flex repetidos para acortar codigo*/
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
@@ -124,25 +128,27 @@ td, tr{
     display: flex;
     justify-content:center;
 }
+.datosanuales img{
+    max-width: 80%;
+}
 .noticias{
     display: flex; 
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom:10px;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }   
 .articulo{
-    max-width: 30%;
     background-color:rgb(210, 240, 229);
     font-size: 0.8em;
     font-style: oblique;
     padding: 15px;
+    margin: 10px;
 }
 /**A partir de aquí se encuentra el CSS del html 2:Preguntas Frecuentes**/
 
 .listapreguntas{
-    font-size: 1.3em;
     color:darkgreen;
-    margin: 0 30px;
 }
 dd{
     display: none;
@@ -151,22 +157,12 @@ dd:target{
     display: initial;
 }
 /**A partir de acá se encuentra el CSS del html 3: Contacto**/
-
- .tituloconsultas{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 1.4em;
-    color:darkgreen;
-    padding: 5px;
-}
-.contacto{
-     margin-left: 30px;
-}
 .columnas{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
-    padding: 20px;
+    width: 90%;
+    margin: 20px;
     overflow: auto;
 }
 
@@ -176,7 +172,7 @@ form{
     padding:20px 30px;
 }
 
-input{
+input,select,textarea{
     width:100%;
     padding:10px;
     margin: 10px 0px;
@@ -185,6 +181,9 @@ input{
     border:0;
     transition:all .3s;
     border-bottom:2px solid #bebed2
+}
+textarea{
+    resize: none;
 }
 input:focus{
     border-bottom:2px solid #78788c
@@ -202,79 +201,72 @@ button:hover{
     color:#fff
 }
 
-
-/**Captcha**/
-#box-captcha{
-    height: 250px;
-    width: 250px;
-    background-color: rgba(201, 215, 235, 0.89);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
-    margin-top: 280px; 
+.cajagrid{
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "col1fil1 col2fil1"
+    "col1fil2 col2fil2" ;
 }
-#valid-title{
-    display: flex;
-    justify-content: center;
-    font-size: 0.6em;
+#captcha{
+    grid-area: col1fil1;
 }
-#botones-captcha{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     
+#boton-refrescar{
+    grid-area: col1fil2;
 }
-#captcha {
-    margin-bottom: 1em;
-    font-size: 30px;
-    letter-spacing: 3px;
-    color: #031f36;
-    }
-   
 #ingreso-captcha{
-    width: 100px;
-    height: 40px;
-}    
-#boton-enviar {
-    display: flex;
-    align-items: flex-start;
-    text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    background-color: #eedfae;
-    border: 0px;
-    font-weight:bolder;
-    }
-#boton-refrescar {
-    display: flex;
-    text-align: center;
-    background-color: #b4ca76;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    border: 0px;
-    font-weight: bolder;
-    }
-#captcha {
-    height: 20px;
-    }
-
-.Captcha-correcto{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    font-size: 3em;
-    color: green;
+    grid-area: col2fil1;
 }
-
-.Captcha-incorrecto{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    font-size: 3em;
-    color: red;
-}    
+#respuesta-captcha{
+    grid-area: col2fil2;
+}
 
 /*animaciones*/
 @keyframes fade{
     from{opacity: 0;}
     to{opacity: 1;}
+}
+@media screen and (min-width:600px) {
+    /* globales */
+    header{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+    nav ul{
+        display: flex;
+    }
+    .btn-menu{
+        display: none;
+    }
+    /* incio */
+    .pasos{
+        flex-flow:row wrap;
+
+    }
+    /* Preguntas Frecuentes */
+    .listapreguntas{
+        font-size: 1.3em;
+        margin: 0 30px;
+    }
+    /* Contacto */
+    .cajaflex{
+        flex-direction: row;
+    }
+    .columnas{
+        width: 40%;
+    }
+}
+@media screen and (min-width:1000px) {
+        /* globales */
+        footer{
+            flex-direction: row;
+        }
+        .noticias{
+            flex-direction: row;
+        }
+        .articulo{
+            max-width: 30%;
+        }
 }
