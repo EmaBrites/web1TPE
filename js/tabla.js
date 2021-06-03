@@ -80,21 +80,21 @@ function mostrarTabla(){
                 <th>Turno</th>
             </tr>
         </thead>
-        <tbody>`;
+        `;
+    let cuerpo=document.createElement("tbody");
     for (const item of voluntarios) {
-        tabla.innerHTML += `
-            <tr>
+        let fila=document.createElement("tr");
+        fila.innerHTML = `
                 <td>${item.nombre}</td>
                 <td>${item.apellido}</td> 
                 <td>${item.telefono}</td> 
                 <td>${item.email}</td> 
                 <td>${item.area}</td> 
                 <td>${item.turno}</td>
-            </tr>`
+            `;
+        cuerpo.appendChild(fila);
     }
-    tabla.innerHTML+=`
-        </tbody>`;
-    console.log(tabla.innerHTML);
+    tabla.appendChild(cuerpo);
 }
 function borrar(e){
     e.preventDefault();
