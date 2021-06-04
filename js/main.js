@@ -1,4 +1,7 @@
 "use strict";
+document.addEventListener("DOMContentLoaded",iniciarCaptcha);
+function iniciarCaptcha(){
+
 let TextoCaptcha= document.querySelector("#captcha");
 let IngresoCaptcha= document.querySelector("#ingreso-captcha");
 let BotonEnviar= document.querySelector("#boton-enviar");
@@ -27,9 +30,6 @@ TextoCaptcha.addEventListener('keyup', function(e){
     }
 });
     
-//function Validar(IngresoCaptcha){
-//IngresoCaptcha.preventDefault();//Nose dónde ubicar esto para que haga el stop antes de mostrar los mensajes de captcha correcto o incorrecto
-//} 
 BotonEnviar.addEventListener('click', function(e){
     e.preventDefault();
     if (IngresoCaptcha.value==TextoCaptcha.innerHTML){
@@ -52,19 +52,4 @@ BotonRefresh.addEventListener('click', function(e){
     respuesta=="";
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
