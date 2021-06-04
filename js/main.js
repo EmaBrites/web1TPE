@@ -30,9 +30,6 @@ TextoCaptcha.addEventListener('keyup', function(e){
     }
 });
     
-//function Validar(IngresoCaptcha){
-//IngresoCaptcha.preventDefault();//Nose dónde ubicar esto para que haga el stop antes de mostrar los mensajes de captcha correcto o incorrecto
-//} 
 BotonEnviar.addEventListener('click', function(e){
     e.preventDefault();
     if (IngresoCaptcha.value==TextoCaptcha.innerHTML){

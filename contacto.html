@@ -9,9 +9,13 @@
 </head>
 <body>
     <header>  
-        <div class="cajaflex">
+        <div class="flex-arund">
             <img src="images/logo-bat.png" alt="Logo del banco de alimentos">
-            <p class="btn-menu">Menu</p>
+            <div id="btn-menu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
         </div>
         <nav>
             <ul>
@@ -42,7 +46,7 @@
                             <button id="boton-refrescar" type="submit">Refrescar</button>   
                         </div>
                         <input id="ingreso-captcha" type="text" name="text" value="">
-                        <p id="respuesta-captcha"></p> <!--Nose si es buena practica poner id y class juntos-->
+                        <p id="respuesta-captcha"></p>
                     </div>
                     <div id="botones-captcha">
                         <button id="boton-enviar" type="submit">Enviar Consulta</button>
