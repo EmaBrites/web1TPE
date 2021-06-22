@@ -38,17 +38,12 @@ async function iniciarTabla(){
     //     area:"administracion",
     //     turno:"tarde",
     // }];
-    try{
-        let respuesta = await fetch("https://60c2aab9917002001739d577.mockapi.io/bat/voluntarios");
-        let voluntarios= await respuesta.json();
-        console.log(voluntarios);
-        mostrarTabla(voluntarios);
-        document.querySelector("#btn-agregar").addEventListener("click",agrega1);
-        document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
-        document.querySelector("#btn-borrar").addEventListener("click",borrar);
-    }catch(error){
-        console.log(error);
-    }
+    
+    mostrarTabla();
+    document.querySelector("#btn-agregar").addEventListener("click",agrega1);
+    document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
+    document.querySelector("#btn-borrar").addEventListener("click",borrar);
+    
     
 
 
@@ -72,7 +67,7 @@ function agrega1(e){
     voluntarios.push(voluntarioNuevo);
     mostrarTabla();
 }
-function agrega3(e,){
+function agrega3(e){
     e.preventDefault();
     for(let i=0; i<3; i++){
         agrega1(e);
@@ -80,34 +75,42 @@ function agrega3(e,){
     mostrarTabla();
 }
 
-function mostrarTabla(voluntarios){
-    let tabla=document.querySelector("#t-voluntarios");
-    tabla.innerHTML=`
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>email</th>
-                <th>Area</th>
-                <th>Turno</th>
-            </tr>
-        </thead>
-        `;
-    let cuerpo=document.createElement("tbody");
-    for (const item of voluntarios) {
-        let fila=document.createElement("tr");
-        fila.innerHTML = `
-                <td>${item.nombre}</td>
-                <td>${item.apellido}</td> 
-                <td>${item.telefono}</td> 
-                <td>${item.email}</td> 
-                <td>${item.area}</td> 
-                <td>${item.turno}</td>
+async function mostrarTabla(){
+    try{
+        let respuesta = await fetch("https://60c2aab9917002001739d577.mockapi.io/bat/voluntarios");
+        let voluntarios= await respuesta.json();
+        console.log(voluntarios);
+    
+        let tabla=document.querySelector("#t-voluntarios");
+        tabla.innerHTML=`
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Telefono</th>
+                    <th>email</th>
+                    <th>Area</th>
+                    <th>Turno</th>
+                </tr>
+            </thead>
             `;
-        cuerpo.appendChild(fila);
-    }
-    tabla.appendChild(cuerpo);
+        let cuerpo=document.createElement("tbody");
+        for (const item of voluntarios) {
+            let fila=document.createElement("tr");
+            fila.innerHTML = `
+                    <td>${item.nombre}</td>
+                    <td>${item.apellido}</td> 
+                    <td>${item.telefono}</td> 
+                    <td>${item.email}</td> 
+                    <td>${item.area}</td> 
+                    <td>${item.turno}</td>
+                `;
+            cuerpo.appendChild(fila);
+        }
+        tabla.appendChild(cuerpo);
+    }catch(error){
+    console.log(error);
+}
 }
 function borrar(e){
     e.preventDefault();
