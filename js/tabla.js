@@ -1,43 +1,55 @@
 "use strict";
 document.addEventListener("DOMContentLoaded",iniciarTabla);
-function iniciarTabla(){
-    let voluntarios=[
-    {
-        nombre:"Antonela",
-        apellido:"Valdez",
-        telefono:"2494609754",
-        email:"avaldez@gmail.com",
-        area:"administracion",
-        turno:"mañana",
-    },
-    {
-        nombre:"Carlos",
-        apellido:"Cardona",
-        telefono:"2494628754",
-        email:"ccardona@gmail.com",
-        area:"deposito",
-        turno:"mañana",
-    },
-    {
-        nombre:"Daniel",
-        apellido:"Fuentes",
-        telefono:"2494626018",
-        email:"dfuentes@gmail.com",
-        area:"deposito",
-        turno:"tarde",
-    },
-    {
-        nombre:"Florencia",
-        apellido:"Gomez",
-        telefono:"2494641444",
-        email:"fgomez@gmail.com",
-        area:"administracion",
-        turno:"tarde",
-    }];
-    mostrarTabla();
-    document.querySelector("#btn-agregar").addEventListener("click",agrega1);
-    document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
-    document.querySelector("#btn-borrar").addEventListener("click",borrar);
+async function iniciarTabla(){
+    // let voluntarios=[
+    // {
+    //     id:"1",
+    //     nombre:"Antonela",
+    //     apellido:"Valdez",
+    //     telefono:"2494609754",
+    //     email:"avaldez@gmail.com",
+    //     area:"administracion",
+    //     turno:"mañana",
+    // },
+    // {
+    //     id:"2",
+    //     nombre:"Carlos",
+    //     apellido:"Cardona",
+    //     telefono:"2494628754",
+    //     email:"ccardona@gmail.com",
+    //     area:"deposito",
+    //     turno:"mañana",
+    // },
+    // {
+    //     id:"3",
+    //     nombre:"Daniel",
+    //     apellido:"Fuentes",
+    //     telefono:"2494626018",
+    //     email:"dfuentes@gmail.com",
+    //     area:"deposito",
+    //     turno:"tarde",
+    // },
+    // {
+    //     id:"4",
+    //     nombre:"Florencia",
+    //     apellido:"Gomez",
+    //     telefono:"2494641444",
+    //     email:"fgomez@gmail.com",
+    //     area:"administracion",
+    //     turno:"tarde",
+    // }];
+    try{
+        let respuesta = await fetch("https://60c2aab9917002001739d577.mockapi.io/bat/voluntarios");
+        let voluntarios= await respuesta.json();
+        console.log(voluntarios);
+        mostrarTabla(voluntarios);
+        document.querySelector("#btn-agregar").addEventListener("click",agrega1);
+        document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
+        document.querySelector("#btn-borrar").addEventListener("click",borrar);
+    }catch(error){
+        console.log(error);
+    }
+    
 
 
 function agrega1(e){
@@ -68,7 +80,7 @@ function agrega3(e,){
     mostrarTabla();
 }
 
-function mostrarTabla(){
+function mostrarTabla(voluntarios){
     let tabla=document.querySelector("#t-voluntarios");
     tabla.innerHTML=`
         <thead>
