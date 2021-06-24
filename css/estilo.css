@@ -191,7 +191,7 @@ textarea{
 input:focus{
     border-bottom:2px solid #78788c
 }
-button{
+form button{
     padding:8px 12px;
     margin:8px 0 0;
     background:none;
@@ -199,7 +199,7 @@ button{
     cursor:pointer;
     transition:all .3s
 }
-button:hover{
+form button:hover{
     background:#78788c;
     color:#fff
 }
