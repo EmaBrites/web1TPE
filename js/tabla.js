@@ -1,11 +1,17 @@
 "use strict";
 document.addEventListener("DOMContentLoaded",iniciarTabla);
-function iniciarTabla(){
+async function iniciarTabla(){
     const url="https://60c2aab9917002001739d577.mockapi.io/bat/voluntarios";
-    mostrarTabla();
     document.querySelector("#btn-agregar").addEventListener("click",agrega1);
     document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
-    document.querySelector("#btn-borrar").addEventListener("click",borrar);
+    document.querySelector("#pagina-ant").addEventListener("click",pasarPagina);
+    document.querySelector("#pagina-sig").addEventListener("click",pasarPagina);
+    const limite=10;
+    let pagina=1;
+    let paginaMax=await cantPaginas(url);
+    actualizarNumPagina();
+    console.log(paginaMax);
+    mostrarTabla(pagina);
     async function agrega1(e){
         e.preventDefault();
         let nombre=document.querySelector("#nombre").value;
@@ -32,7 +38,7 @@ function iniciarTabla(){
             if (res.status == 201) {
                 console.log("Creado!");
             }
-            mostrarTabla();
+            mostrarTabla(pagina);
         }
         catch (error) {
             console.log(error);
@@ -43,11 +49,11 @@ function iniciarTabla(){
         for(let i=0; i<3; i++){
             agrega1(e);
         }
-        mostrarTabla();
+        mostrarTabla(pagina);
     }
-    async function mostrarTabla(){
+    async function mostrarTabla(pagina){
         try{
-            let respuesta = await fetch(url);
+            let respuesta = await fetch(`${url}?p=${pagina}&l=${limite}`);
             let voluntarios= await respuesta.json();
             let tabla=document.querySelector("#t-voluntarios");
             tabla.innerHTML=`
@@ -59,37 +65,59 @@ function iniciarTabla(){
                         <th>email</th>
                         <th>Area</th>
                         <th>Turno</th>
+                        <th>Editar</th>
+                        <th>Borrar</th>
                     </tr>
                 </thead>
                 `;
             let cuerpo=document.createElement("tbody");
-            for (let i = 0; i < voluntarios.length; i++){
-                let fila=document.createElement("tr");
-                fila.innerHTML = `
-                        <td>${voluntarios[i].nombre}</td>
-                        <td>${voluntarios[i].apellido}</td> 
-                        <td>${voluntarios[i].telefono}</td> 
-                        <td>${voluntarios[i].email}</td> 
-                        <td>${voluntarios[i].area}</td> 
-                        <td>${voluntarios[i].turno}</td>
-                        <td><button class="fas fa-edit" value=${i}></button></td>
-                        <td><i class="fas fa-trash-alt"></i></td>
+            if (respuesta.ok) {
+                for (let i = 0; i < voluntarios.length; i++){
+                    if (filtro)
+                    let fila=document.createElement("tr");
+                    fila.innerHTML = `
+                    <td>${voluntarios[i].nombre}</td>
+                    <td>${voluntarios[i].apellido}</td> 
+                    <td>${voluntarios[i].telefono}</td> 
+                    <td>${voluntarios[i].email}</td> 
+                    <td>${voluntarios[i].area}</td> 
+                    <td>${voluntarios[i].turno}</td>
+                    <td><button class="fas fa-edit" value=${i}></button></td>
+                    <td><button class="fas fa-trash-alt" value=${voluntarios[i].id}></button></td>
                     `;
-                cuerpo.appendChild(fila);
-            }
-            tabla.appendChild(cuerpo);
-            let btn_editar=document.querySelectorAll(".fa-edit");
-            for (const btn of btn_editar) {
-                btn.addEventListener("click",function(e){editar(e,voluntarios)})
+                    cuerpo.appendChild(fila);
+                }
+                tabla.appendChild(cuerpo);
+                let btn_editar=document.querySelectorAll(".fa-edit");
+                let btn_borrar=document.querySelectorAll(".fa-trash-alt");
+                btn_borrar.forEach(e => {
+                    e.addEventListener("click", borrar)
+                })
+                for (const btn of btn_editar) {
+                    btn.addEventListener("click",function(e){editar(e,voluntarios)})
+                }
+                paginaMax=await cantPaginas(url);
+                actualizarNumPagina();
             }
         }catch(error){
         console.log(error);
     }
     }
-    function borrar(e){
-        e.preventDefault();
-        voluntarios=[];   
-        mostrarTabla();
+    async function borrar() {
+        let id = this.value
+        console.log(id);
+        try {
+            let res = await fetch(`${url}/${id}`, {
+                "method": "DELETE",
+            });
+            if (res.status == 200) {
+                console.log("Borrado!");
+            }
+            mostrarTabla(pagina);
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
     async function editar(e,voluntarios){
         e.preventDefault();
@@ -107,6 +135,7 @@ function iniciarTabla(){
             </form>
                 `;
         document.querySelector(".fa-check-circle").addEventListener("click",async function(e){
+            e.preventDefault();
             voluntarios[i].nombre=document.querySelector("#edit-nombre").value;
             voluntarios[i].apellido=document.querySelector("#edit-apellido").value;
             voluntarios[i].telefono=document.querySelector("#edit-telefono").value;
@@ -122,11 +151,34 @@ function iniciarTabla(){
                 if (res.status == 201) {
                     console.log("Creado!");
                 }
-                mostrarTabla();
+                mostrarTabla(pagina);
             }
             catch (error) {
                 console.log(error);
             }  
         })
+    }
+    function pasarPagina(){
+        pagina+=Number(this.value);
+        mostrarTabla(pagina);
+        actualizarNumPagina();
+    }
+    async function cantPaginas(url){
+        try{
+            let respuesta=await fetch(url);
+            let datos= await respuesta.json();
+            if (respuesta.ok) {
+                return Math.floor(datos.length/limite+1);
+            }
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+    function actualizarNumPagina(){
+        document.querySelector("#pagina-num").innerHTML=`${pagina}/${paginaMax}`;
+    }
+    function filtrar(){
+        mostrarTabla(pagina,filtro)
     }
 }

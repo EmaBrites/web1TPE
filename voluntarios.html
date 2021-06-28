@@ -30,9 +30,9 @@
     <main> 
         <h1>Inscripción Voluntarios</h1>
         <p class="textoCentrado">Si querés formar parte de nuestra organización en cualquiera de nuestras áreas completa el siguiente formulario</p>
-        <div class="cajaflex">
-            <div class="columnas">
-                <form action="">
+        <form action="" class="contenedor">
+            <div class="cajaflex">
+                <div class="columnas">
                     <div>
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre">
@@ -45,6 +45,8 @@
                         <label for="telefono">Telefono</label>
                         <input type="text" id="telefono">
                     </div>
+                </div>
+                <div class="columnas">
                     <div>
                         <label for="email">Email</label>
                         <input type="text" id="email">
@@ -63,12 +65,12 @@
                             <option value="Tarde">Tarde</option>
                         </select>
                     </div>
-                    <button id="btn-agregar">Agregar</button>
-                    <button id="btn-agregar3">Agregar 3</button>
-                    <button id="btn-borrar">Borrar</button>
-                </form>
+                </div>
             </div>
-            <div class="columnas">
+            <button id="btn-agregar">Agregar</button>
+            <button id="btn-agregar3">Agregar 3</button>
+        </form>
+            <div class="contenedor">
                 filtro
                 <select name="" id="">
                     <option value="">sin seleccionar</option>
@@ -77,9 +79,13 @@
                 </select>
                 <button>filtrar</button>
                 <table id="t-voluntarios"></table>
+                <div class="centrado">
+                    <button id="pagina-ant" value="-1">anterior</button>
+                    <p id="pagina-num">1/?</p>
+                    <button id="pagina-sig" value="1">siguiente</button>
+                </div>
                 
             </div>
-        </div>
     </main>
     <footer>
         <p><span class="iniciofooter">Contacto:</span> Rosales 383 -Tandil-7000  Tel: (0249) 4449149 Email: info@bat.org.ar</p>
