@@ -4,8 +4,10 @@ async function iniciarTabla(){
     const url="https://60c2aab9917002001739d577.mockapi.io/bat/voluntarios";
     document.querySelector("#btn-agregar").addEventListener("click",agrega1);
     document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
-    document.querySelector("#pagina-ant").addEventListener("click",pasarPagina);
-    document.querySelector("#pagina-sig").addEventListener("click",pasarPagina);
+    let btnAnt=document.querySelector("#pagina-ant");
+    btnAnt.addEventListener("click",pasarPagina);
+    let btnSig=document.querySelector("#pagina-sig");
+    btnSig.addEventListener("click",pasarPagina);
     const limite=10;
     let pagina=1;
     let paginaMax=await cantPaginas(url);
@@ -37,8 +39,10 @@ async function iniciarTabla(){
             });
             if (res.status == 201) {
                 console.log("Creado!");
+                paginaMax=await cantPaginas(url);
+                mostrarTabla(pagina);
+                actualizarNumPagina();
             }
-            mostrarTabla(pagina);
         }
         catch (error) {
             console.log(error);
@@ -73,7 +77,6 @@ async function iniciarTabla(){
             let cuerpo=document.createElement("tbody");
             if (respuesta.ok) {
                 for (let i = 0; i < voluntarios.length; i++){
-                    if (filtro)
                     let fila=document.createElement("tr");
                     fila.innerHTML = `
                     <td>${voluntarios[i].nombre}</td>
@@ -96,7 +99,6 @@ async function iniciarTabla(){
                 for (const btn of btn_editar) {
                     btn.addEventListener("click",function(e){editar(e,voluntarios)})
                 }
-                paginaMax=await cantPaginas(url);
                 actualizarNumPagina();
             }
         }catch(error){
@@ -112,8 +114,10 @@ async function iniciarTabla(){
             });
             if (res.status == 200) {
                 console.log("Borrado!");
+                paginaMax=await cantPaginas(url);
+                mostrarTabla(pagina);
+                actualizarNumPagina();
             }
-            mostrarTabla(pagina);
         }
         catch (error) {
             console.log(error);
@@ -150,8 +154,8 @@ async function iniciarTabla(){
                 });
                 if (res.status == 201) {
                     console.log("Creado!");
+                    mostrarTabla(pagina);
                 }
-                mostrarTabla(pagina);
             }
             catch (error) {
                 console.log(error);
@@ -160,15 +164,27 @@ async function iniciarTabla(){
     }
     function pasarPagina(){
         pagina+=Number(this.value);
-        mostrarTabla(pagina);
-        actualizarNumPagina();
+        if (pagina<=paginaMax&&pagina>=1) {
+            mostrarTabla(pagina);
+            actualizarNumPagina();
+        }
+        if (pagina>=paginaMax) {
+            btnSig.disabled=true;
+        }else {
+            btnSig.disabled=false;
+        }
+        if (pagina<=1) {
+            btnAnt.disabled=true;
+        }else{
+            btnAnt.disabled=false;
+        }
     }
     async function cantPaginas(url){
         try{
             let respuesta=await fetch(url);
             let datos= await respuesta.json();
             if (respuesta.ok) {
-                return Math.floor(datos.length/limite+1);
+                return Math.ceil(datos.length/limite);
             }
         }
         catch(error){
@@ -177,8 +193,5 @@ async function iniciarTabla(){
     }
     function actualizarNumPagina(){
         document.querySelector("#pagina-num").innerHTML=`${pagina}/${paginaMax}`;
-    }
-    function filtrar(){
-        mostrarTabla(pagina,filtro)
     }
 }
