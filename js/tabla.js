@@ -4,6 +4,7 @@ async function iniciarTabla(){
     const url="https://60c2aab9917002001739d577.mockapi.io/bat/voluntarios";
     document.querySelector("#btn-agregar").addEventListener("click",agrega1);
     document.querySelector("#btn-agregar3").addEventListener("click",agrega3);
+    document.querySelector("#filtrar").addEventListener("keyup", filtrar);
     let btnAnt=document.querySelector("#pagina-ant");
     btnAnt.addEventListener("click",pasarPagina);
     let btnSig=document.querySelector("#pagina-sig");
@@ -12,7 +13,6 @@ async function iniciarTabla(){
     let pagina=1;
     let paginaMax=await cantPaginas(url);
     actualizarNumPagina();
-    console.log(paginaMax);
     mostrarTabla(pagina);
     async function agrega1(e){
         e.preventDefault();
@@ -37,7 +37,7 @@ async function iniciarTabla(){
                 "headers": { "Content-type": "application/json" },
                 "body": JSON.stringify(voluntarioNuevo)
             });
-            if (res.status == 201) {
+            if (res.ok) {
                 console.log("Creado!");
                 paginaMax=await cantPaginas(url);
                 mostrarTabla(pagina);
@@ -75,6 +75,7 @@ async function iniciarTabla(){
                 </thead>
                 `;
             let cuerpo=document.createElement("tbody");
+            cuerpo.classList.add("tabla-cuerpo");
             if (respuesta.ok) {
                 for (let i = 0; i < voluntarios.length; i++){
                     let fila=document.createElement("tr");
@@ -97,7 +98,7 @@ async function iniciarTabla(){
                     e.addEventListener("click", borrar)
                 })
                 for (const btn of btn_editar) {
-                    btn.addEventListener("click",function(e){editar(e,voluntarios)})
+                    btn.addEventListener("click",function(e){editar(e,voluntarios)});
                 }
                 actualizarNumPagina();
             }
@@ -107,12 +108,11 @@ async function iniciarTabla(){
     }
     async function borrar() {
         let id = this.value
-        console.log(id);
         try {
             let res = await fetch(`${url}/${id}`, {
                 "method": "DELETE",
             });
-            if (res.status == 200) {
+            if (res.ok) {
                 console.log("Borrado!");
                 paginaMax=await cantPaginas(url);
                 mostrarTabla(pagina);
@@ -152,8 +152,8 @@ async function iniciarTabla(){
                     "headers": { "Content-type": "application/json" },
                     "body": JSON.stringify(voluntarios[i])
                 });
-                if (res.status == 201) {
-                    console.log("Creado!");
+                if (res.ok) {
+                    console.log("Editado!");
                     mostrarTabla(pagina);
                 }
             }
@@ -193,5 +193,26 @@ async function iniciarTabla(){
     }
     function actualizarNumPagina(){
         document.querySelector("#pagina-num").innerHTML=`${pagina}/${paginaMax}`;
+    }
+    async function filtrar() {
+        let textoFiltrado = document.querySelector("#filtrar").value;
+        let tabla = document.querySelector(".tabla-cuerpo");
+        let tr = tabla.getElementsByTagName("tr");
+        for (let i = 0; i < tr.length; i++) {
+            let visible = false;
+            let td = tr[i].getElementsByTagName("td");
+            for (let j = 0; j < td.length; j++) {
+                if (td[j] && td[j].innerHTML.indexOf(textoFiltrado) > -1) {
+                    visible = true;
+                }
+            }
+            if (visible === true) {
+                tr[i].classList.remove("oculto");
+            } else {
+                tr[i].classList.add("oculto");
+    
+            }
+        }
+    
     }
 }
