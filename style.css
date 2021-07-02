@@ -1,0 +1,8 @@
+div{
+    width: 50%;
+    background-color: darkgreen;
+}
+div.interno{
+    width: 50%;
+    background-color: darkkhaki;
+}
